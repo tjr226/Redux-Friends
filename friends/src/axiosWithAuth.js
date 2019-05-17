@@ -1,13 +1,12 @@
 import Axios from 'axios';
 
-export default function() {
+export const axiosWithAuth = () => {
     const token = localStorage.getItem('userToken');
 
     return Axios.create({
         headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `${token}`
+            // 'Content-Type': 'application/json',
+            Authorization: token
         },
-        baseURL: 'http://localhost:5000'
     });
 };
