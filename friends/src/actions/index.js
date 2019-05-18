@@ -1,5 +1,5 @@
 import Axios from 'axios';
-import { axiosWithAuth} from '../axiosWithAuth';
+import { axiosWithAuth } from '../axiosWithAuth';
 
 export const LOGIN_START = 'LOGIN_START';
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
@@ -22,11 +22,27 @@ export const FETCH_FRIENDS_SUCCESS = 'FETCH_FRIENDS_SUCCESS';
 export const FETCH_FRIENDS_FAILURE = 'FETCH_FRIENDS_FAILURE';
 
 export const getData = () => dispatch => {
-    dispatch({ type: FETCH_FRIENDS_START });
-    axiosWithAuth.get('http://localhost:5000/api/login')
+    dispatch({ type: FETCH_FRIENDS_START })
+    axiosWithAuth().get('http://localhost:5000/api/login')
         .then(res => {
-            dispatch({ type: FETCH_FRIENDS_SUCCESS, payload: res.data.data })
-        }).catch(err => {
+            dispatch({ type: FETCH_FRIENDS_SUCCESS, payload: res.data})
+        })
+        .catch(err => {
             dispatch({ type: FETCH_FRIENDS_FAILURE })
+        })
+}
+
+export const ADD_FRIENDS_START = 'ADD_FRIENDS_START';
+export const ADD_FRIENDS_SUCCESS = 'ADD_FRIENDS_SUCCESS';
+export const ADD_FRIENDS_FAILURE = 'ADD_FRIENDS_FAILURE';
+
+export const postData = () => dispatch => {
+    dispatch({ type: ADD_FRIENDS_START })
+    axiosWithAuth().post('http://localhost:5000/api/login')
+        .then(res => {
+            dispatch({ type: ADD_FRIENDS_SUCCESS, payload: res.data})
+        })
+        .catch(err => {
+            dispatch({ type: ADD_FRIENDS_FAILURE })
         })
 }

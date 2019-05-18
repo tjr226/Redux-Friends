@@ -8,7 +8,6 @@ class FriendsList extends React.Component {
         this.props.getData();
     }
 
-
     render() {
         console.log(this.props.friendsList)
         return (
@@ -19,12 +18,12 @@ class FriendsList extends React.Component {
 
 const mapStateToProps = state => ({ 
     friendsList: state.friendsReducer.friendsList
+    // friendsList: state.friendsList
 })
 
-export default new FriendsList(
-    connect(
+export default connect(
         mapStateToProps,
         { getData }
     )(FriendsList)
-)
+
 

@@ -26,8 +26,7 @@ class Login extends React.Component {
         e.preventDefault();
         this.props.login(this.state.credentials)
             .then(() => {
-                // following line is breaking
-                // this.props.history.push('/friendslist');
+                this.props.history.push('/friendslist');
             })
     }
 
@@ -54,7 +53,7 @@ class Login extends React.Component {
 }
 
 const mapStateToProps = state => ({
-    loggingIn: state.logginIn
+    loggingIn: state.loggingIn
 })
 
 export default connect(
