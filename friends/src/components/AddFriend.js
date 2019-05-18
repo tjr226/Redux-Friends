@@ -22,7 +22,7 @@ class AddFriend extends React.Component {
     }
 
     createNewFriend = e => {
-        console.log(this.state.newFriend);
+        // console.log(this.state.newFriend);
         e.preventDefault();
         this.props.postData(this.state.newFriend)
     }

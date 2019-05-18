@@ -26,11 +26,11 @@ export const getData = creds => dispatch => {
     dispatch({ type: FETCH_FRIENDS_START })
     axiosWithAuth().get('http://localhost:5000/api/friends')
         .then(res => {
-            console.log("response", res);
+            // console.log("response", res);
             dispatch({ type: FETCH_FRIENDS_SUCCESS, payload: res.data})
         })
         .catch(err => {
-            console.log(err);
+            // console.log(err);
             dispatch({ type: FETCH_FRIENDS_FAILURE })
         })
 }
@@ -56,7 +56,7 @@ export const DELETE_FRIEND_FAILURE = 'DELETE_FRIEND_FAILURE';
 
 export const deleteData = friendID => dispatch => {
     dispatch({ type: DELETE_FRIEND_START })
-    axiosWithAuth().post(`http://localhost:5000/api/friends/${friendID}`)
+    axiosWithAuth().delete(`http://localhost:5000/api/friends/${friendID}`)
         .then(res => {
             dispatch({ type: DELETE_FRIEND_SUCCESS, payload: res.data})
         })

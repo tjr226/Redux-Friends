@@ -11,7 +11,7 @@ class FriendsList extends React.Component {
     }
 
     render() {
-        console.log("current friendslist", this.props.friendsList)
+        // console.log("current friendslist", this.props.friendsList)
         return (
             <div>
             {this.props.friendsList.map(friend => {
@@ -31,7 +31,6 @@ class FriendsList extends React.Component {
 
 const mapStateToProps = state => ({ 
     friendsList: state.friendsReducer.friendsList
-    // friendsList: state.friendsList
 })
 
 export default connect(
