@@ -17,6 +17,7 @@ class FriendsList extends React.Component {
             {this.props.friendsList.map(friend => {
                 return <Friend
                         key={friend.id}
+                        id={friend.id}
                         name={friend.name}
                         age={friend.age}
                         email={friend.email}

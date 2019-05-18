@@ -1,11 +1,14 @@
 import React from 'react';
 
-function Friend(props) {
+class Friend extends React.Component {
+    render() {
     return (
         <div>
-            {props.name}, {props.age} years old, {props.email}
+            {this.props.name}, {this.props.age} years old, {this.props.email}
+            <button onClick="">X</button>
         </div>
     )
+    }
 }
 
 export default Friend
