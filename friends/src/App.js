@@ -9,8 +9,6 @@ import FriendsList from './components/FriendsList';
 function App() {
   return (
     <Router>
-   
-        <p>hey</p>
         <ul>
           <li>
             <Link to="/login">Login</Link>
@@ -22,7 +20,6 @@ function App() {
 
       <Route path="/login" component={Login}  />
       <PrivateRoute exact path="/friendslist" component={FriendsList} />  
-    
     </Router>
   );
 }

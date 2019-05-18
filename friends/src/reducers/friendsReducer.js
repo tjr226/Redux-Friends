@@ -43,11 +43,17 @@ export const friendsReducer = (state = initialState, action) => {
             }
         case ADD_FRIENDS_START:
             return {
-                ...state
+                ...state,
+                savingFriends: true,
+                error: '',
             }
         case ADD_FRIENDS_SUCCESS:
             return {
-                ...state
+                ...state,
+                savingFriends: false,
+                error: '',
+                friendsList: action.payload
+                
             }
         default:
             return state;

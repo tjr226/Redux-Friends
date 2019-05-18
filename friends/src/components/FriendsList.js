@@ -2,6 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import { getData } from '../actions';
+import Friend from './Friend';
+import AddFriend from './AddFriend';
 
 class FriendsList extends React.Component {
     componentDidMount() {
@@ -9,9 +11,19 @@ class FriendsList extends React.Component {
     }
 
     render() {
-        console.log(this.props.friendsList)
+        console.log("current friendslist", this.props.friendsList)
         return (
-            <p>Friends 1, 2, 3</p>
+            <div>
+            {this.props.friendsList.map(friend => {
+                return <Friend
+                        key={friend.id}
+                        name={friend.name}
+                        age={friend.age}
+                        email={friend.email}
+                        />
+            } )}
+            <AddFriend />
+            </div>
         )
     }
 }

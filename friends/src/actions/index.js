@@ -21,13 +21,16 @@ export const FETCH_FRIENDS_START = 'FETCH_FRIENDS_START';
 export const FETCH_FRIENDS_SUCCESS = 'FETCH_FRIENDS_SUCCESS';
 export const FETCH_FRIENDS_FAILURE = 'FETCH_FRIENDS_FAILURE';
 
-export const getData = () => dispatch => {
+export const getData = creds => dispatch => {
+    // console.log("creds", creds)
     dispatch({ type: FETCH_FRIENDS_START })
-    axiosWithAuth().get('http://localhost:5000/api/login')
+    axiosWithAuth().get('http://localhost:5000/api/friends')
         .then(res => {
+            console.log("response", res);
             dispatch({ type: FETCH_FRIENDS_SUCCESS, payload: res.data})
         })
         .catch(err => {
+            console.log(err);
             dispatch({ type: FETCH_FRIENDS_FAILURE })
         })
 }
@@ -36,9 +39,9 @@ export const ADD_FRIENDS_START = 'ADD_FRIENDS_START';
 export const ADD_FRIENDS_SUCCESS = 'ADD_FRIENDS_SUCCESS';
 export const ADD_FRIENDS_FAILURE = 'ADD_FRIENDS_FAILURE';
 
-export const postData = () => dispatch => {
+export const postData = newFriend => dispatch => {
     dispatch({ type: ADD_FRIENDS_START })
-    axiosWithAuth().post('http://localhost:5000/api/login')
+    axiosWithAuth().post('http://localhost:5000/api/friends', newFriend)
         .then(res => {
             dispatch({ type: ADD_FRIENDS_SUCCESS, payload: res.data})
         })
